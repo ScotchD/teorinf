@@ -58,12 +58,20 @@ def clicked():
         return x
     vir = txt1.get()
     nv = 0
+    nv1 = 0
     for j in range(len(vir)):
         if vir[j].isalpha():
             lblo1 = Label(window, text="Неверное выражение", fg="red", font=("Times New Roman", 9))
             lblo1.grid(column=0, row=2)
             lbl3.configure(text="")
             nv = 1
+            break
+    for j in range(len(vir)):
+        if txt2.get().isalpha():
+            lblo2 = Label(window, text="Неверное\nполе", fg="red", font=("Times New Roman", 9))
+            lblo2.grid(column=1, row=2)
+            lbl3.configure(text="")
+            nv1 = 1
             break
     if vir == "":
         lblo1 = Label(window, text="Выражение не введено", fg="red", font=("Times New Roman", 9))
@@ -72,18 +80,19 @@ def clicked():
     p = 0
     lblo = Label(window, text="", fg="red", font=("Times New Roman", 9))
     lblo.grid(column=1, row=2)
-    if txt2.get() == "":
-        lblo = Label(window, text="Поле не\nвведено", fg="red", font=("Times New Roman", 9))
-        lblo.grid(column=1, row=2)
-        lbl3.configure(text="")
-    elif not(int(txt2.get()) in pr):
-        lblo = Label(window, text="Введено не\nпростое число", fg="red", font=("Times New Roman", 9))
-        lblo.grid(column=1, row=2)
-        lbl3.configure(text = "")
-    else:
-        p = txt2.get()
-        p = int(p)
-    if  vir != "" and (p in pr) and txt2.get() != "" and nv == 0:
+    if nv1 == 0:
+        if txt2.get() == "":
+            lblo = Label(window, text="Поле не\nвведено", fg="red", font=("Times New Roman", 9))
+            lblo.grid(column=1, row=2)
+            lbl3.configure(text="")
+        elif not(int(txt2.get()) in pr):
+            lblo = Label(window, text="Введено не\nпростое число", fg="red", font=("Times New Roman", 9))
+            lblo.grid(column=1, row=2)
+            lbl3.configure(text = "")
+        else:
+            p = txt2.get()
+            p = int(p)
+    if  vir != "" and (p in pr) and txt2.get() != "" and nv == 0 and nv1 == 0:
         lblo = Label(window, text="                       \n                       ", fg="red", font=("Times New Roman", 9))
         lblo.grid(column=1, row=2)
         lblo1 = Label(window, text="                                      ", fg="red", font=("Times New Roman", 9))
