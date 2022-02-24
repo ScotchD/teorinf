@@ -58,11 +58,12 @@ def clicked():
         return x
     vir = txt1.get()
     nv = 0
-    if vir.isalnum():
-        lblo1 = Label(window, text="Неверное выражение", fg="red", font=("Times New Roman", 9))
-        lblo1.grid(column=0, row=2)
-        lbl3.configure(text="")
-        nv = 1
+    for j in range(len(vir)):
+        if vir[j].isalpha():
+            lblo1 = Label(window, text="Неверное выражение", fg="red", font=("Times New Roman", 9))
+            lblo1.grid(column=0, row=2)
+            lbl3.configure(text="")
+            nv = 1
     if vir == "":
         lblo1 = Label(window, text="Выражение не введено", fg="red", font=("Times New Roman", 9))
         lblo1.grid(column=0, row=2)
@@ -89,7 +90,7 @@ def clicked():
         vir = vir.split()
         for i in range(len(vir)):
             if vir[i].isalnum() or (vir[i][0] == "-" and len(vir[i]) > 1):
-                vir[i] = int(vir[i])
+                    vir[i] = int(vir[i])
             nul = 0
             for i in range(len(vir)):
                 if vir[i] == "/":
