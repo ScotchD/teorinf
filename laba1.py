@@ -57,6 +57,12 @@ def clicked():
                     break
         return x
     vir = txt1.get()
+    nv = 0
+    if vir.isalnum():
+        lblo1 = Label(window, text="Неверное выражение", fg="red", font=("Times New Roman", 9))
+        lblo1.grid(column=0, row=2)
+        lbl3.configure(text="")
+        nv = 1
     if vir == "":
         lblo1 = Label(window, text="Выражение не введено", fg="red", font=("Times New Roman", 9))
         lblo1.grid(column=0, row=2)
@@ -75,7 +81,7 @@ def clicked():
     else:
         p = txt2.get()
         p = int(p)
-    if  vir != "" and (p in pr) and txt2.get() != "":
+    if  vir != "" and (p in pr) and txt2.get() != "" and nv == 0:
         lblo = Label(window, text="                       \n                       ", fg="red", font=("Times New Roman", 9))
         lblo.grid(column=1, row=2)
         lblo1 = Label(window, text="                                      ", fg="red", font=("Times New Roman", 9))
