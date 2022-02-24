@@ -64,6 +64,7 @@ def clicked():
             lblo1.grid(column=0, row=2)
             lbl3.configure(text="")
             nv = 1
+            break
     if vir == "":
         lblo1 = Label(window, text="Выражение не введено", fg="red", font=("Times New Roman", 9))
         lblo1.grid(column=0, row=2)
