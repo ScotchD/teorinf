@@ -38,7 +38,13 @@ for i in range(sumat):
 #print("SR", SR)
 infsl = input("Введите последовательность, которую необходимо закодировать: ")
 infsl1 = infsl
-if infsl.isalpha() or infsl.isalnum() and ("2" in infsl or "3" in infsl or "4" in infsl or "5" in infsl or "6" in infsl or "7" in infsl or "8" in infsl or "9" in infsl):
+pr1 = False
+for i in range(len(infsl)):
+    if infsl[i] != "0":
+        if infsl[i] != "1":
+            pr1 = True
+            break
+if pr1:
     infsl = text_to_bits(infsl)
 print("Информационное слово: ", infsl)
 rez = []
@@ -184,5 +190,11 @@ for i in range(len(INFSL)):
     IS += str(INFSL[i])
 IS = IS[:-kreg1]
 print("Изначальное информационное слово: ", IS)
-if infsl1.isalpha() or infsl1.isalnum() and ("2" in infsl1 or "3" in infsl1 or "4" in infsl1 or "5" in infsl1 or "6" in infsl1 or "7" in infsl1 or "8" in infsl1 or "9" in infsl1):
+pr1 = False
+for i in range(len(infsl)):
+    if infsl[i] != "0":
+        if infsl[i] != "1":
+            pr1 = True
+            break
+if pr1:
     print("Изначальная последовательность: ", text_from_bits(IS))
